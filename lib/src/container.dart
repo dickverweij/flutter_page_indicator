@@ -110,7 +110,7 @@ class PageContainerState extends State<PageIndicatorContainer> {
   PageView get pageView => widget.child as PageView;
 
   bool _onScroll(ScrollNotification notification) {
-    if (notification.metrics is PageMetrics) {
+    if (notification.metrics is PageMetrics && notification.depth == 0) {
       final PageMetrics metrics = notification.metrics as PageMetrics;
       currentPage = metrics.page;
       setState(() {});
